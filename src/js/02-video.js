@@ -13,7 +13,13 @@ const onPlay = evt => {
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
+localStorage.removeItem(STORAGE_KEY);
+
 const playedTime = localStorage.getItem(STORAGE_KEY);
 
-player.setCurrentTime(playedTime);
+if (playedTime !== null) {
+    player.setCurrentTime(playedTime);
+  }
+
+
 
